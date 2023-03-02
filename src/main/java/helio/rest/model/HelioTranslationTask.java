@@ -1,10 +1,7 @@
 package helio.rest.model;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,7 +9,6 @@ import javax.persistence.Lob;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import helio.Helio;
 import helio.blueprints.TranslationUnit;
 import helio.blueprints.components.Components;
 import helio.blueprints.exceptions.ExtensionNotFoundException;
@@ -54,13 +50,17 @@ public class HelioTranslationTask {
 
 	// -- Ancillary methods
 	@JsonIgnore
-	public void asemble() throws IncompatibleMappingException, IncorrectMappingException, ExtensionNotFoundException, TranslationUnitExecutionException {
-		if (mappingContent != null && !mappingContent.isBlank() && mappingProcessor != null && !mappingProcessor.isBlank()) {
-			this.units = Components.newBuilderInstance(mappingProcessor).parseMapping(mappingContent);
-			
-		} else {
-			String message = HelioService.concat("Translation task '",this.id,"' can not be asembled because it has no mapping");
-			throw new IncorrectMappingException(message);
+	public void asemble(boolean force) throws IncompatibleMappingException, IncorrectMappingException, ExtensionNotFoundException,
+			TranslationUnitExecutionException {
+		if (units.isEmpty() || force) {
+			if (mappingContent != null && !mappingContent.isBlank() && mappingProcessor != null
+					&& !mappingProcessor.isBlank()) {
+				units = Components.newBuilderInstance(mappingProcessor).parseMapping(mappingContent);
+			} else {
+				String message = HelioService.concat("Translation task '", this.id,
+						"' can not be asembled because it has no mapping");
+				throw new IncorrectMappingException(message);
+			}
 		}
 	}
 

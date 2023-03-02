@@ -1,30 +1,61 @@
 [
- 
   {
-    "source": "https://github.com/helio-ecosystem/helio-handler-jayway/releases/download/v0.1.1/helio-handler-jayway-0.1.1.jar",
+    "source": "./components/helio-handler-jayway-0.1.1.jar",
     "clazz": "handlers.JsonHandler",
     "type": "HANDLER"
   },{
-    "source": "https://github.com/helio-ecosystem/helio-provider-files/releases/download/v0.1.1/helio-provider-files-0.1.1.jar",
+    "source": "./components/helio-handler-xml-0.1.2.jar",
+    "clazz": "handlers.XmlHandler",
+    "type": "HANDLER"
+  },{
+    "source": "./components/helio-provider-files-0.1.1.jar",
     "clazz": "helio.providers.files.FileProvider",
     "type": "PROVIDER"
   },
   {
-    "source": "https://github.com/helio-ecosystem/helio-provider-files/releases/download/v0.1.1/helio-provider-files-0.1.1.jar",
+    "source": "./components/helio-provider-files-0.1.1.jar",
     "clazz": "helio.providers.files.FileWatcherProvider",
     "type": "PROVIDER"
   },{
-    "source" : "https://github.com/helio-ecosystem/helio-provider-url/releases/download/v0.1.0/helio-provider-url-0.1.0.jar",
+    "source" : "./components/helio-provider-url-0.1.0.jar",
     "clazz": "provider.URLProvider",
     "type": "PROVIDER"
   },{
-    "source": "https://github.com/helio-ecosystem/helio-builder-siot/releases/download/v0.1.7/helio-builder-siot-0.1.7.jar",
-    "clazz": "helio.builder.siot.SIoTBuilder",
+    "source" : "./components/helio-providers-web-0.1.2.jar",
+    "clazz": "helio.providers.HttpProvider",
+    "type": "PROVIDER"
+  },{
+    "source": "./components/helio-builder-siot-0.1.10.jar",
+    "clazz": "helio.builder.siot.rx.SIoTRxBuilder",
     "type": "BUILDER"
   },{
-    "source": "https://github.com/helio-ecosystem/helio-builder-rmlmapper/releases/download/v0.1.1/helio-builder-rmlmapper-0.1.1.jar",
+    "source": "./components/helio-builder-rmlmapper-0.1.2.jar",
     "clazz": "helio.builder.rmlmapper.RmlUnitBuilder",
     "type": "BUILDER"
+  },{
+    "source": "./components/helio-provider-mqtt-0.1.1.jar",
+    "clazz": "helio.providers.MqttProvider",
+    "type": "PROVIDER"
+  },{
+    "source": "./components/helio-action-json-cast-0.1.0.jar",
+    "clazz": "helio.actions.JsonCast",
+    "type": "ACTION"
+  },{
+    "source": "./components/helio-action-odrl-0.1.2.jar",
+    "clazz": "helio.action.odrl.ODRL",
+    "type": "ACTION"
+  },{
+    "source": "./components/helio-action-shacl-validator-0.1.1.jar",
+    "clazz": "helio.action.shacl.validator.ShaclValidator",
+    "type": "ACTION"
+  },{
+    "source": "./components/helio-action-sparql-engine-1.2.1.jar",
+    "clazz": "helio.action.sparql.query.SparqlEngine",
+    "type": "ACTION"
+  },{
+    "source": "./components/helio-action-rdf-cast-0.1.0.jar",
+    "clazz": "helio.action.rdf.cast.RdfCast",
+    "type": "ACTION"
   }
 
 ]

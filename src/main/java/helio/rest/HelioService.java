@@ -51,7 +51,7 @@ public class HelioService {
 	public static void initTasks(){
 		HelioTaskService.listHelioTasks().stream().forEach(hTask -> {
 			try {
-				hTask.asemble();
+				hTask.asemble(true);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -59,7 +59,6 @@ public class HelioService {
 	}
 
 	// -- default components methods
-	public static String defaultComponentsFile = "./default-components.json";
 	public static void loadDefaultComponents() {
 			List<Component> components = readDefaultComponents();
 			components.parallelStream()
@@ -70,11 +69,12 @@ public class HelioService {
 
 	private static List<Component> readDefaultComponents() {
 		try {
-			String content = Files.readString(Paths.get(defaultComponentsFile));
+			
+			String content = Files.readString(Paths.get(HelioRest.DEFAULT_COMPONENTS));
 			return MAPPER.readValue(content, new TypeReference<List<Component>>(){});
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.exit(-1);
+			//System.exit(-1);
 		}
 		return null;
 
@@ -84,8 +84,6 @@ public class HelioService {
 	protected static void registerComponents() {
 		HelioComponentService.list().parallelStream().forEach(helioComponent -> {
 			try {
-				
-				
 				Components.registerAndLoad(helioComponent.getComponent());
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -93,5 +91,7 @@ public class HelioService {
 			}
 		});
 	}
+	
+	
 
 }
