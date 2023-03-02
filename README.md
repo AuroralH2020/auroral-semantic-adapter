@@ -1,4 +1,4 @@
-# Helio REST API
+# Semantic Adapter REST API
 
 # Quickstart
 
@@ -20,7 +20,7 @@ volumes:
     name: helio-db
 ````
 
-Using java download the [latest released version](https://github.com/helio-ecosystem/helio-rest/releases) and run the script `run.sh`
+Using java download the [latest released version](https://github.com/AuroralH2020/auroral-semantic-adapter/releases) and run the script `run.sh`
 
 
 # API
